@@ -9,7 +9,9 @@
 </head>
 <body>
 
-<?php require_once 'process.php'?>
+<?php 
+require 'process.php';
+?>
 
 <div class="alert alert-success" style="display:none" role="alert">
 
@@ -37,11 +39,11 @@
                 $rd_arr = $con -> query("SELECT * FROM crud");
 
                 while ($row = $rd_arr -> fetch_assoc()): ?>
-                <tr id="<?= $row['id']?>">
-                    <td><?= $row['id']?></td>
-                    <td><?= $row['name']?></td>
-                    <td><?= $row['age']?></td>
-                    <td><?= $row['location']?></td>
+                <tr id="<?php echo $row['id']?>">
+                    <td><?php echo $row['id']?></td>
+                    <td><?php echo $row['name']?></td>
+                    <td><?php echo $row['age']?></td>
+                    <td><?php echo $row['location']?></td>
                 <td> 
                     <button class="btn btn-primary edit" value="<?php echo $row['id']?>" >Edit</button>
                     <button class="btn btn-danger delete" value="<?php echo $row['id']?>">Delete</button>
@@ -57,17 +59,17 @@
         <form action="javascript:void(0)";>
             <div class="form-group">
                 <label for="name">Name: </label>
-                <input type="text" class="form-control" id="name" aria-describedby="name-input" name="name" value="<?= $name ?>" placeholder="Enter your name">
+                <input type="text" class="form-control" id="name" aria-describedby="name-input" name="name" value="<?php echo $name ?>" placeholder="Enter your name">
             </div>
         
             <div class="form-group">
                 <label for="age">Age: </label>
-                <input type="text" class="form-control" id="age" name="age" value="<?= $age ?>" placeholder="Enter your age">
+                <input type="text" class="form-control" id="age" name="age" value="<?php echo $age ?>" placeholder="Enter your age">
             </div>
         
             <div class="form-group">
                 <label for="location">Location: </label>
-                <input type="text" class="form-control" id="location" name="location" value="<?= $location ?>" placeholder="Enter your location">
+                <input type="text" class="form-control" id="location" name="location" value="<?php echo $location ?>" placeholder="Enter your location">
             </div>
                 <button type="button" class="btn btn-primary update" name="update" value="">Create</button>
         </form>

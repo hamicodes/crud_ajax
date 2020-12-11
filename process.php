@@ -1,7 +1,7 @@
 <?php
-session_start();
+// session_start();
 
-$con = new mysqli('localhost', 'root', 'sqlpass', 'sql_prac');
+require "connection.php";
 
 // $id = ;
 $name = "";

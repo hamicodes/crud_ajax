@@ -28,7 +28,6 @@ $(document).ready(function(){
         let location = $("#location").val();
         
         let createUpdate = function(obj) {
-            console.log(obj)
             let update = JSON.parse(obj);
             let id = update.id;
             if (document.getElementById(id) == null) {
