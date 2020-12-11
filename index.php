@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/jpg" href="favicon.jpeg"/>
     <title>CRUD</title>
 </head>
 <body>
@@ -75,8 +76,8 @@
 </div>
 
     
-<script src="vendor/js/jquery-3.5.1.min.js"></script>
-<script src="vendor/js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/ajax.js"></script>
 </body>
 </html>

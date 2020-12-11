@@ -2,7 +2,9 @@ $(document).ready(function(){
     //Delete
     $("table").on("click", ".delete", function(){
         let val = $(this).attr("value");
-        $(`#${val}`).load(`process.php?delete=${val}`)
+        // $(`#${val}`).load(`process.php?delete=${val}`)
+        $.post('process.php', {delete: `${val}`});
+        $(`#${val}`).remove()
     })
 
     //Edit/Read
@@ -11,7 +13,7 @@ $(document).ready(function(){
         $(".update").attr("value", val);
         $(".update").text("Update");        
 
-        $.get(`process.php?edit=${val}`, (obj) => {
+        $.post('process.php', {edit:`${val}` }, (obj) => {
             let update = JSON.parse(obj)
             $("#name").attr("value", update.name);
             $("#age").attr("value", update.age);
@@ -26,6 +28,7 @@ $(document).ready(function(){
         let location = $("#location").val();
         
         let createUpdate = function(obj) {
+            console.log(obj)
             let update = JSON.parse(obj);
             let id = update.id;
             if (document.getElementById(id) == null) {
@@ -46,11 +49,21 @@ $(document).ready(function(){
         }
         
         if ($(this).text() == "Create") {
-            $.get(`process.php?create&name=${name}&age=${age}&location=${location}`, createUpdate);
+            $.post('process.php', {
+                create:null,
+                name: `${name}`,
+                age: `${age}`,
+                location: `${location}`
+            }, createUpdate);
         }
         else {
             let id = $(this).attr("value");
-            $.get(`process.php?update=${id}&name=${name}&age=${age}&location=${location}`, createUpdate);
+            $.post('process.php',{
+                update: `${id}`,
+                name: `${name}`,
+                age: `${age}`,
+                location: `${location}`
+                }, createUpdate);
         }
         $(this).text("Create")
     })
